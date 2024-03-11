@@ -10,7 +10,7 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 2.0.2"
-requires "nesper >= 0.6.1"
+requires "nesper#devel"
 
 # includes nimble tasks for building Nim esp-idf projects
 include nesper/build_utils/tasks

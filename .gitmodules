@@ -2,3 +2,7 @@
 	path = lib/esp-idf
 	url = https://github.com/espressif/esp-idf.git
 	branch = release/v4.0
+[submodule "lib/nesper"]
+	path = lib/nesper
+	url = https://github.com/elcritch/nesper
+	branch = devel
