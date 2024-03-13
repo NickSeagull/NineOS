@@ -17,7 +17,7 @@ proc idf(arg: string): string =
   result = "python " & getEnv("IDF_PATH") & "tools/idf.py " & arg
 
 task build_nim, "Builds the Nim code":
-  exec "nim prepare main/main.nim -d:release -d:ESP_IDF_V4_4"
+  exec "nim prepare main/main.nim -d:release -d:esp32s3 -d:ESP_IDF_V4_4"
   exec idf("reconfigure")
 
 task clean, "Cleans the entire project":
