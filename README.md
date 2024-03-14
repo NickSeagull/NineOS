@@ -2,8 +2,8 @@
 
 ## Setup
 
-- Install ESP-IDF v4.4.
-- ⚠️ Use **THE CMD FROM ESP-IDF** and not Powershell/WSL2 ⚠️
-- Clone this repo with its submodules recursively: `git clone --recursive <URL TO THIS REPO>`
-- Install Nim and Nimble
-- Build with `nimble esp_compile` and then `idf.py reconfigure; idf.py build`
+- Install Nim and Nimble using `choosenim`
+- Add Nim and Nimble to the SYSTEM PATH environment variable
+- Install ESP-IDF v4.4 using the Visual Studio Extension.
+- Build with `nimble build_project`
+- Flash using `idf.py -p <PORT> flash`
