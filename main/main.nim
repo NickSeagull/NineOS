@@ -4,9 +4,14 @@ import nesper/net_utils
 import nesper/nvs_utils
 import nesper/events
 import nesper/wifi
-import nesper/tasks
+import ./lib/m5unified as M5
+import ./lib/m5gfx as M5GFX
 
 import server
+
+# const baseDir = "C:/Espressif/frameworks/esp-idf-v4.4/components/M5Cardputer"
+# cIncludeDir(baseDir)
+# cimport("M5Cardputer.h")
 
 # Get Password
 const WIFI_SSID {.strdefine.}: string = "doce"
@@ -103,6 +108,13 @@ proc exampleDisconnect*(): esp_err_t =
   return ESP_OK
 
 app_main():
+  var cfg = M5.config()
+  M5.begin(cfg)
+  var textSize = M5.Display().height() div 60
+  if textSize < 1:
+    textSize = 1
+  M5.Display().setTextSize(textSize)
+  M5.Display().printf("Hello, World!\n")
   initNvs()
   when defined(ESP_IDF_V4_0):
     tcpip_adapter_init()

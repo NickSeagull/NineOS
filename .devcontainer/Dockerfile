@@ -44,6 +44,11 @@ USER ${CONTAINER_USER}
 ENV USER=${CONTAINER_USER}
 WORKDIR /home/${CONTAINER_USER}
 
+RUN curl https://nim-lang.org/choosenim/init.sh -sSf -o ./init.sh && \
+  chmod +x ./init.sh && \
+  ./init.sh -y && \
+  rm ./init.sh
+
 RUN echo "source /opt/esp/idf/export.sh > /dev/null 2>&1" >> ~/.bashrc
 
 ENTRYPOINT [ "/opt/esp/entrypoint.sh" ]

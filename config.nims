@@ -5,10 +5,11 @@ task prepare, "Compile to C code":
   let nimbasepath = selfExe().splitFile.dir.parentDir / "lib" / "nimbase.h"
   let nimcachepath = "main" / "nimcache"
   cpFile(nimbasepath, nimcachepath / "nimbase.h")
+  # cpFile("main/main.cpp", nimcachePath / "main.cpp")
   let params = commandLineParams()
   let file = params[1]
   let rest = params[2..high(params)].join(" ")
-  
+
   let wifi_ssid = getEnv("WIFI_SSID")
   let wifi_pass = getEnv("WIFI_PASSWORD")
 
@@ -19,7 +20,7 @@ task prepare, "Compile to C code":
       ""
 
   let
-    cmd = "nim c --os:freertos --cpu:esp --nomain --nimcache:$1 --compileOnly -d:NimAppMain $4 $3 $2 " %
+    cmd = "nim c --os:freertos --cpu:esp --nomain --nimcache:$1 -d:esp32s3 --compileOnly -d:NimAppMain $4 $3 $2 " %
               [nimcachepath, file, rest, wifidefs]
 
   echo("cmd: " & cmd)
