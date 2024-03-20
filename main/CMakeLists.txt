@@ -19,10 +19,12 @@ idf_component_register(SRC_DIRS "./nimcache"
 
 # set(C_COMPILE_OPTIONS "${C_COMPILE_OPTIONS} -Wno-error=unused-label")
 # list(APPEND C_COMPILE_OPTIONS "-Wno-error=unused-label ")
-
+set( CMAKE_C_STANDARD 11 )
+set( CMAKE_CXX_STANDARD 17 )
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-unused-label APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-discarded-qualifiers APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-ignored-qualifiers APPEND)
+idf_build_set_property(C_COMPILE_OPTIONS -MM APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=unused-label APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=parentheses APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=implicit-function-declaration APPEND)
@@ -30,8 +32,7 @@ idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=maybe-uninitialized APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=nonnull APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-error=address APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -Wno-unused-but-set-variable APPEND)
-idf_build_set_property(C_COMPILE_OPTIONS -Wno-write-strings APPEND)
 idf_build_set_property(C_COMPILE_OPTIONS -fexceptions APPEND)
-idf_build_set_property(C_COMPILE_OPTIONS -MM APPEND)
+idf_build_set_property(C_COMPILE_OPTIONS -fpermissive APPEND)
 
 # target_compile_options(${COMPONENT_LIB} PRIVATE -I${NIMLIB} )
